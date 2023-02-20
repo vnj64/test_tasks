@@ -9,36 +9,15 @@
 <body>
     <form method="post" id="todo-form">
         <input type="text" name="word" id="todo">
-        <button type="submit" name="translate" value="translate">Translate</button>
-        <button type="submit" name="report" value="report">Report</button>
+        <button type="submit">Translate</button>
     </form>
-    <script>
-        src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-        crossorigin="anonymous">
-    </script>
-
-      <script type="text/javascript">
-        $(document).on('submit','#todo-form',function(e)
-                       {
-          e.preventDefault();
-          $.ajax({
-            type:'POST',
-            url:'/',
-            data:{
-              todo:$("#todo").val()
-            },
-            success:function()
-            {
-              alert('saved');
-            }
-          })
-        });
-      </script>
     {{ original }}
-    {{ data }}
+
     <a href="{{ url_for('xls') }}">
         <button type="submit" name="action" value="xml">XML TABLE</button>
+    </a>
+    <a href="{{ url_for('report') }}">
+        <button type="submit" name="action" value="Report">Report</button>
     </a>
 </body>
 </html>
