@@ -4,7 +4,6 @@ from transliterate import translit
 
 
 def transliterate(text):
-    # define your transliteration function here
     new = translit(text, 'ru', reversed=True)
     return new
 
