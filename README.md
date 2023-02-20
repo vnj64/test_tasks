@@ -1,8 +1,7 @@
 ### Running The Server
 
+- pip install -r requirements.txt
 
-- export FLASK_APP=project.
-
-- export FLASK_DEBUG=1.
+- export FLASK_APP=main.py
 
 - flask run.
