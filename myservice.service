@@ -1,0 +1,15 @@
+[Unit]
+Description=Test service
+After=multi-user.target
+
+[Service]
+User=vf140
+Group=admin
+Type=simple
+Restart=always
+RestartSec=15
+WorkingDirectory=/home/sirius
+ExecStart=/usr/bin/python3 /home/sirius/prog.py
+
+[Install]
+WantedBy=multi-user.target
