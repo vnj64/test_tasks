@@ -10,27 +10,19 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    original = ""
-    otc = ""
     if request.method == 'POST':
-        if 'translate' in request.form:
-            wrd = request.form.get("word")
-            translit = transliterate(wrd)
-            original = translit
-            save_to_database(wrd, translit)
-            return render_template('index.html', original=original)
-
-        elif 'report' in request.form:
-            data = get_last_10_entries()
-            otc = data
-            return render_template('index.html', otc=otc)
+        wrd = request.form.get("word")
+        translit = transliterate(wrd)
+        original = translit
+        save_to_database(wrd, translit)
+        return render_template('index.html', original=original)
 
     return render_template('index.html')
 
 @app.route('/report', methods=['GET'])
 def report():
     data = get_last_10_entries()
-    return render_template('report.html', data=data)
+    return render_template("report.html", data=data)
 
 @app.route('/xls', methods=['GET'])
 def xls():
